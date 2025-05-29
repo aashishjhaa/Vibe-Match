@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeMatch - AI Palette & Font Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #101010; /* Dark base */
+      color: #e5e7eb; /* Tailwind gray-200, good default for dark themes */
+    }
+    /* For Webkit browsers */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #18181b; /* Tailwind zinc-900 */
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #dc2626; /* Tailwind red-600 */
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ef4444; /* Tailwind red-500 */
+    }
+    /* Basic focus style for accessibility, Tailwind handles more specific ones */
+    *:focus-visible {
+        outline: 2px solid #ef4444; /* Tailwind red-500 */
+        outline-offset: 2px;
+    }
+
+    @keyframes flowColors {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animated-vibematch-title {
+      /* Expanded Gradient: Full spectrum for "a lot of colors" */
+      background: linear-gradient(to right, 
+        #ef4444, /* red-500 */
+        #f97316, /* orange-500 */
+        #eab308, /* yellow-500 */
+        #84cc16, /* lime-500 */
+        #22c55e, /* green-500 */
+        #10b981, /* emerald-500 */
+        #14b8a6, /* teal-500 */
+        #06b6d4, /* cyan-500 */
+        #0ea5e9, /* sky-500 */
+        #3b82f6, /* blue-500 */
+        #6366f1, /* indigo-500 */
+        #8b5cf6, /* violet-500 */
+        #a855f7, /* purple-500 */
+        #d946ef, /* fuchsia-500 */
+        #ec4899, /* pink-500 */
+        #f43f5e, /* rose-500 */
+        #ef4444  /* red-500 again for loop */
+      );
+      background-size: 400% 400%; /* Increased size for wider gradient */
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: flowColors 10s ease infinite; /* Added animation property */
+    }
+
+    @keyframes animate-fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: animate-fadeIn 0.3s ease-out forwards;
+    }
+
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.2.0",
+    "openai": "https://esm.sh/openai@^4.103.0",
+    "@anthropic-ai/sdk": "https://esm.sh/@anthropic-ai/sdk@^0.52.0",
+    "groq-sdk": "https://esm.sh/groq-sdk@^0.22.0",
+    "vite": "https://esm.sh/vite@^6.3.5",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^4.5.0"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+<link rel="stylesheet" href="index.css">
+<script src="index.tsx" type="module"></script>
